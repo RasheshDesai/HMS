@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Hospital_Management_System.Models.BusinessLayer.Doctor>
+@{
+	ViewData["Title"] = "ShowPatients";
+}
+
+<h1>Show All Doctors</h1>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Doctor Name</th>
+        <th>Speciality</th>
+
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.DoctorID</td>
+            <td>@d.DoctorName</td>
+            <td>@d.Speciality</td>
+        </tr>
+    }
+</table>

@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IPatientService,PatientService>();
+builder.Services.AddScoped<IDoctorService, DoctorsService>();
 
 builder.Services.AddDbContext<HospitalDbContext>(o => o.UseSqlite(builder.Configuration.GetConnectionString("HospitalDbContext")));
 

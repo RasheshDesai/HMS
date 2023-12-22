@@ -1,0 +1,36 @@
+﻿@using Hospital_Management_System.Models.BusinessLayer
+@model Hospital_Management_System.Models.BusinessLayer.Doctor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Doctor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateDoctor">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DoctorName" class="control-label"></label>
+                <input asp-for="DoctorName" class="form-control" />
+                <span asp-validation-for="DoctorName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Speciality" class="form-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Speciality" class="form-control" asp-items="Html.GetEnumSelectList<Speciality>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Speciality" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

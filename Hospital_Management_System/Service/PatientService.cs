@@ -13,6 +13,13 @@ namespace Hospital_Management_System.Service
             _context = context;
         }
 
+        public Patient AddPatient(Patient patient)
+        {
+            _context.Patients.Add(patient);
+            _context.SaveChanges();
+            return patient;
+        }
+
         public Patient GetPatientById(int id)
         {
 

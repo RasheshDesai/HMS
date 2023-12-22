@@ -34,7 +34,7 @@ namespace Hospital_Management_System.Migrations
                     PatientId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     PatientName = table.Column<string>(type: "TEXT", nullable: true),
-                    Gender = table.Column<string>(type: "TEXT", nullable: true),
+                    Gender = table.Column<int>(type: "INTEGER", nullable: false),
                     Address = table.Column<string>(type: "TEXT", nullable: true),
                     PhoneNo = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
@@ -124,20 +124,42 @@ namespace Hospital_Management_System.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Doctors",
+                columns: new[] { "DoctorID", "DoctorName", "Speciality" },
+                values: new object[,]
+                {
+                    { 1, "Elon Mask", 7 },
+                    { 2, "Alice Heart", 2 },
+                    { 3, "Michael Bones", 3 },
+                    { 4, "Sarah Kiddo", 4 },
+                    { 5, "David Mind", 5 },
+                    { 6, "Grace Skin", 6 },
+                    { 7, "Oliver Tooth", 7 },
+                    { 8, "Lily Cardia", 2 },
+                    { 9, "Jason Joints", 3 },
+                    { 10, "Sophia Pediatric", 4 },
+                    { 11, "Ethan Psyche", 5 },
+                    { 12, "Emma Dermis", 6 },
+                    { 13, "Noah Grin", 7 },
+                    { 14, "Ava Heart", 2 },
+                    { 15, "William Spine", 3 }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Patients",
                 columns: new[] { "PatientId", "Address", "Description", "Gender", "MedicalRecord", "PatientName", "PhoneNo" },
                 values: new object[,]
                 {
-                    { 1, "220 Burnhamthorpe Rd", "HighFever", "Male", "None", "Rashesh", "6474277899" },
-                    { 2, "123 Elm Street", "Allergies", "Female", "Allergy to peanuts", "Sarah", "555-1234" },
-                    { 3, "789 Oak Avenue", "Broken Arm", "Male", "Fractured left arm", "Michael", "555-5678" },
-                    { 4, "456 Maple Drive", "Migraine", "Female", "Chronic migraines", "Emily", "555-9876" },
-                    { 5, "111 Pine Lane", "Stomachache", "Male", "Digestive issues", "Daniel", "555-5555" },
-                    { 6, "777 Cedar Road", "Sprained Ankle", "Female", "Injured right ankle", "Olivia", "555-2222" },
-                    { 7, "222 Birch Street", "Concussion", "Male", "Head injury", "William", "555-7777" },
-                    { 8, "333 Oak Drive", "Asthma", "Female", "Asthma diagnosis", "Sophia", "555-3333" },
-                    { 9, "444 Elm Avenue", "Fever", "Male", "Unknown fever cause", "Noah", "555-4444" },
-                    { 10, "555 Pine Street", "Flu", "Female", "Influenza diagnosis", "Ava", "555-8888" }
+                    { 1, "220 Burnhamthorpe Rd", "HighFever", 1, "None", "Rashesh", "6474277899" },
+                    { 2, "123 Elm Street", "Allergies", 2, "Allergy to peanuts", "Sarah", "555-1234" },
+                    { 3, "789 Oak Avenue", "Broken Arm", 1, "Fractured left arm", "Michael", "555-5678" },
+                    { 4, "456 Maple Drive", "Migraine", 2, "Chronic migraines", "Emily", "555-9876" },
+                    { 5, "111 Pine Lane", "Stomachache", 1, "Digestive issues", "Daniel", "555-5555" },
+                    { 6, "777 Cedar Road", "Sprained Ankle", 2, "Injured right ankle", "Olivia", "555-2222" },
+                    { 7, "222 Birch Street", "Concussion", 1, "Head injury", "William", "555-7777" },
+                    { 8, "333 Oak Drive", "Asthma", 2, "Asthma diagnosis", "Sophia", "555-3333" },
+                    { 9, "444 Elm Avenue", "Fever", 1, "Unknown fever cause", "Noah", "555-4444" },
+                    { 10, "555 Pine Street", "Flu", 2, "Influenza diagnosis", "Ava", "555-8888" }
                 });
 
             migrationBuilder.CreateIndex(

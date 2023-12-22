@@ -81,6 +81,98 @@ namespace Hospital_Management_System.Migrations
                     b.HasKey("DoctorID");
 
                     b.ToTable("Doctors");
+
+                    b.HasData(
+                        new
+                        {
+                            DoctorID = 1,
+                            DoctorName = "Elon Mask",
+                            Speciality = 7
+                        },
+                        new
+                        {
+                            DoctorID = 2,
+                            DoctorName = "Alice Heart",
+                            Speciality = 2
+                        },
+                        new
+                        {
+                            DoctorID = 3,
+                            DoctorName = "Michael Bones",
+                            Speciality = 3
+                        },
+                        new
+                        {
+                            DoctorID = 4,
+                            DoctorName = "Sarah Kiddo",
+                            Speciality = 4
+                        },
+                        new
+                        {
+                            DoctorID = 5,
+                            DoctorName = "David Mind",
+                            Speciality = 5
+                        },
+                        new
+                        {
+                            DoctorID = 6,
+                            DoctorName = "Grace Skin",
+                            Speciality = 6
+                        },
+                        new
+                        {
+                            DoctorID = 7,
+                            DoctorName = "Oliver Tooth",
+                            Speciality = 7
+                        },
+                        new
+                        {
+                            DoctorID = 8,
+                            DoctorName = "Lily Cardia",
+                            Speciality = 2
+                        },
+                        new
+                        {
+                            DoctorID = 9,
+                            DoctorName = "Jason Joints",
+                            Speciality = 3
+                        },
+                        new
+                        {
+                            DoctorID = 10,
+                            DoctorName = "Sophia Pediatric",
+                            Speciality = 4
+                        },
+                        new
+                        {
+                            DoctorID = 11,
+                            DoctorName = "Ethan Psyche",
+                            Speciality = 5
+                        },
+                        new
+                        {
+                            DoctorID = 12,
+                            DoctorName = "Emma Dermis",
+                            Speciality = 6
+                        },
+                        new
+                        {
+                            DoctorID = 13,
+                            DoctorName = "Noah Grin",
+                            Speciality = 7
+                        },
+                        new
+                        {
+                            DoctorID = 14,
+                            DoctorName = "Ava Heart",
+                            Speciality = 2
+                        },
+                        new
+                        {
+                            DoctorID = 15,
+                            DoctorName = "William Spine",
+                            Speciality = 3
+                        });
                 });
 
             modelBuilder.Entity("Hospital_Management_System.Models.BusinessLayer.Patient", b =>
@@ -95,8 +187,8 @@ namespace Hospital_Management_System.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Gender")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Gender")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("MedicalRecord")
                         .HasColumnType("TEXT");
@@ -117,7 +209,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 1,
                             Address = "220 Burnhamthorpe Rd",
                             Description = "HighFever",
-                            Gender = "Male",
+                            Gender = 1,
                             MedicalRecord = "None",
                             PatientName = "Rashesh",
                             PhoneNo = "6474277899"
@@ -127,7 +219,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 2,
                             Address = "123 Elm Street",
                             Description = "Allergies",
-                            Gender = "Female",
+                            Gender = 2,
                             MedicalRecord = "Allergy to peanuts",
                             PatientName = "Sarah",
                             PhoneNo = "555-1234"
@@ -137,7 +229,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 3,
                             Address = "789 Oak Avenue",
                             Description = "Broken Arm",
-                            Gender = "Male",
+                            Gender = 1,
                             MedicalRecord = "Fractured left arm",
                             PatientName = "Michael",
                             PhoneNo = "555-5678"
@@ -147,7 +239,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 4,
                             Address = "456 Maple Drive",
                             Description = "Migraine",
-                            Gender = "Female",
+                            Gender = 2,
                             MedicalRecord = "Chronic migraines",
                             PatientName = "Emily",
                             PhoneNo = "555-9876"
@@ -157,7 +249,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 5,
                             Address = "111 Pine Lane",
                             Description = "Stomachache",
-                            Gender = "Male",
+                            Gender = 1,
                             MedicalRecord = "Digestive issues",
                             PatientName = "Daniel",
                             PhoneNo = "555-5555"
@@ -167,7 +259,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 6,
                             Address = "777 Cedar Road",
                             Description = "Sprained Ankle",
-                            Gender = "Female",
+                            Gender = 2,
                             MedicalRecord = "Injured right ankle",
                             PatientName = "Olivia",
                             PhoneNo = "555-2222"
@@ -177,7 +269,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 7,
                             Address = "222 Birch Street",
                             Description = "Concussion",
-                            Gender = "Male",
+                            Gender = 1,
                             MedicalRecord = "Head injury",
                             PatientName = "William",
                             PhoneNo = "555-7777"
@@ -187,7 +279,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 8,
                             Address = "333 Oak Drive",
                             Description = "Asthma",
-                            Gender = "Female",
+                            Gender = 2,
                             MedicalRecord = "Asthma diagnosis",
                             PatientName = "Sophia",
                             PhoneNo = "555-3333"
@@ -197,7 +289,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 9,
                             Address = "444 Elm Avenue",
                             Description = "Fever",
-                            Gender = "Male",
+                            Gender = 1,
                             MedicalRecord = "Unknown fever cause",
                             PatientName = "Noah",
                             PhoneNo = "555-4444"
@@ -207,7 +299,7 @@ namespace Hospital_Management_System.Migrations
                             PatientId = 10,
                             Address = "555 Pine Street",
                             Description = "Flu",
-                            Gender = "Female",
+                            Gender = 2,
                             MedicalRecord = "Influenza diagnosis",
                             PatientName = "Ava",
                             PhoneNo = "555-8888"

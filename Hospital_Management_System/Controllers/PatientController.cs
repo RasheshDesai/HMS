@@ -1,4 +1,5 @@
-﻿using Hospital_Management_System.Models.SQLOperation;
+﻿using Hospital_Management_System.Models.BusinessLayer;
+using Hospital_Management_System.Models.SQLOperation;
 using Hospital_Management_System.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,18 @@ namespace Hospital_Management_System.Controllers
         {
             var list = service.GetPatientsRecords();
             return View(list);
+        }
+        [HttpGet]
+        public IActionResult CreatePatient()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreatePatient(Patient patient)
+        {
+            Patient p = service.AddPatient(patient);
+            return RedirectToAction("ShowPatients");
+            
         }
         public IActionResult Index()
         {

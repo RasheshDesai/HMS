@@ -6,6 +6,7 @@ namespace Hospital_Management_System.Models.SQLOperation
     {
         List<Patient> GetPatientsRecords();
 
+        public Patient AddPatient(Patient patient);
         public Patient GetPatientById(int id);
 
         public List<Patient> GetPatientByName(string name);
