@@ -1,0 +1,38 @@
+﻿@using Hospital_Management_System.Models.BusinessLayer
+@model Hospital_Management_System.Models.BusinessLayer.Patient
+
+@{
+    ViewBag.Title = "Update Patient";
+}
+
+<h1> Update Patient</h1>
+
+@using (Html.BeginForm("EditPatient", "Patient"))
+{
+    @Html.Label("Enter Id: ")
+    @Html.TextBoxFor(p=>p.PatientId)
+    @Html.Label("Enter Name: ")
+    @Html.TextBoxFor(p => p.PatientName)
+    @Html.Label("Edit Gender: ")
+    @foreach (var gender in Enum.GetValues(typeof(Gender)))
+    {
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" asp-for="Gender" value="@gender" id="@($"Gender_{gender}")">
+            <label class="form-check-label" for="@($"Gender_{gender}")">@gender</label>
+        </div>
+    }
+    @Html.Label("Enter Address: ")
+    @Html.TextBoxFor(p => p.Address)
+
+    @Html.Label("Enter Phone No: ")
+    @Html.TextBoxFor(p => p.PhoneNo)
+
+    @Html.Label("Enter : Description")
+    @Html.TextBoxFor(p => p.Description)
+
+    @Html.Label("Enter : Medical Record")
+    @Html.TextBoxFor(p => p.MedicalRecord)
+
+    <input type="submit" value="Update Patient" />
+
+}

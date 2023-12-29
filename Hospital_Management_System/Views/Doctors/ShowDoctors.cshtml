@@ -1,23 +1,66 @@
 ﻿@model IEnumerable<Hospital_Management_System.Models.BusinessLayer.Doctor>
+@using Hospital_Management_System.Models.BusinessLayer
 @{
 	ViewData["Title"] = "ShowPatients";
 }
 
-<h1>Show All Doctors</h1>
+<html>
+    <head>
 
-<table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Doctor Name</th>
-        <th>Speciality</th>
+    </head>
 
-    </tr>
-    @foreach (var d in Model)
-    {
-        <tr>
-            <td>@d.DoctorID</td>
-            <td>@d.DoctorName</td>
-            <td>@d.Speciality</td>
-        </tr>
-    }
-</table>
+    <body>
+
+        <header>
+            <div class="champion font">
+                @using (Html.BeginForm("GetDoctorByName", "Doctors"))
+                {
+                    <p>
+                        Find Doctor by Name: @Html.TextBox("name")
+                    </p>
+                    <input type="submit" value="Search" />
+                }
+            </div>
+            <div class="enum-list font">
+                @using (Html.BeginForm("GetDoctorBySpeciality", "Doctors"))
+                {
+                    <p>
+
+                        Find Doctor By Speciality : @Html.DropDownList("speciality", Html.GetEnumSelectList(typeof(Speciality)))
+                    </p>
+                    <input type="submit" value="Search" />
+                }
+            </div>
+
+        </header>
+
+        <main>
+            <h1>Show All Doctors</h1>
+
+
+
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Doctor Name</th>
+                    <th>Speciality</th>
+
+                </tr>
+                @foreach (var d in Model)
+                {
+                    <tr>
+                        <td>@d.DoctorID</td>
+                        <td>@d.DoctorName</td>
+                        <td>@d.Speciality</td>
+                    </tr>
+                }
+            </table>
+        </main>
+            
+
+
+    </body>
+
+
+</html>
+

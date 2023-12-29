@@ -7,7 +7,10 @@ namespace Hospital_Management_System.Models.SQLOperation
         List<Doctor> GetDoctorsRecord();
 
         public Doctor CreateDoctor(Doctor doctor);
-        public Doctor GetDoctorByName();
-        List<Doctor> GetDoctorBySpeciality(string  speciality);
+        public List<Doctor> GetDoctorByName(string name);
+        List<Doctor> GetDoctorBySpeciality(Speciality speciality);
+
+        Doctor UpdateDoctor(Doctor doctor);
+        string DeleteDoctor(int id);
     }
 }

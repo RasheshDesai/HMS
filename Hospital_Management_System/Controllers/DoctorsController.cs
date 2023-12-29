@@ -35,5 +35,40 @@ namespace Hospital_Management_System.Controllers
             Doctor addDoc = service.CreateDoctor(doctor);
             return RedirectToAction("ShowDoctors");
         }
+
+        [HttpPost]
+        public IActionResult GetDoctorBySpeciality(Speciality speciality)
+        {
+            var doctor = service.GetDoctorBySpeciality(speciality);
+            return View(doctor);
+        }
+
+        [HttpPost]
+        public IActionResult GetDoctorByName(string name)
+        {
+            var doctorname = service.GetDoctorByName(name);
+            return View(doctorname);
+        }
+
+        public IActionResult DeleteDoctor(int id)
+        {
+            ViewData["Done"] = service.DeleteDoctor(id);
+            return RedirectToAction("ShowDoctors");
+        }
+
+        [HttpGet]
+        public ActionResult EditDoctor()
+        {
+            return View();  
+        }
+
+        [HttpPost]
+        public ActionResult EditDoctor(Doctor update)
+        {
+            service.UpdateDoctor(update);
+
+			return RedirectToAction("ShowDoctors");
+		}
+
     }
 }

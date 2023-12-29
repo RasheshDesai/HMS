@@ -1,0 +1,34 @@
+﻿@model Hospital_Management_System.Models.BusinessLayer.Doctor
+@using Hospital_Management_System.Models.BusinessLayer
+@{
+	ViewBag.Title = "Edit Doctor Information";
+}
+
+<html>
+	<head>
+
+	</head>
+
+	<body>
+		<h1>Edit Doctor Details</h1>
+
+    @using (Html.BeginForm("EditDoctor", "Doctors"))
+    {
+        @Html.Label("Enter Doctor Id: ")
+        @Html.TextBoxFor(d=>d.DoctorID)
+
+
+        @Html.Label("Enter Doctor Name: ")
+        <input asp-for="DoctorName" class="form-control" />
+     
+        @Html.Label("Edit Specialitiy: ")
+        <select asp-for="Speciality" class="form-control" asp-items="Html.GetEnumSelectList<Speciality>()">
+            <option selected="selected" value="">Please select</option>
+        </select>
+
+
+        <input type="submit" value="Update Doctor" />
+
+    }
+	</body>
+</html>

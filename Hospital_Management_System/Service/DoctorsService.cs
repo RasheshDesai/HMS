@@ -20,20 +20,44 @@ namespace Hospital_Management_System.Service
             return doctor;
         }
 
-        public Doctor GetDoctorByName()
+        public string DeleteDoctor(int id)
         {
-            throw new NotImplementedException();
+            var findDoctor = _context.Doctors.Find(id)!;
+            if(findDoctor != null) 
+            {
+                _context.Remove(findDoctor);
+                _context.SaveChanges();
+
+            }
+           
+            return "Doctor Deleted";
         }
 
-        public List<Doctor> GetDoctorBySpeciality(string speciality)
+        public List<Doctor> GetDoctorByName(string name)
         {
-            throw new NotImplementedException();
+            List<Doctor> list = _context.Doctors.Where(d => d.DoctorName == name).ToList();
+            return list;
+
+        }
+
+        public List<Doctor> GetDoctorBySpeciality(Speciality speciality)
+        {
+            return _context.Doctors.Where(d=> d.Speciality == speciality).ToList();  
         }
 
         public List<Doctor> GetDoctorsRecord()
         {
             List<Doctor> doctors = _context.Doctors.ToList();
             return doctors;
+        }
+
+        public Doctor UpdateDoctor(Doctor doctor)
+        {
+
+            var d = _context.Doctors.Attach(doctor);
+            d.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return doctor;
         }
     }
 }

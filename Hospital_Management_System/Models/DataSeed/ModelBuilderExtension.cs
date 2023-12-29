@@ -37,8 +37,12 @@ namespace Hospital_Management_System.Models.DataSeed
                      new Doctor { DoctorID = 14, DoctorName = "Ava Heart", Speciality = Speciality.Cardiologist },
                      new Doctor { DoctorID = 15, DoctorName = "William Spine", Speciality = Speciality.OrthopedicSurgeon }
                 );
+            /*
+                modelBuilder.Entity<Appointment>().HasData(
+                    new Appointment { AppointmentId = 1, AppointmentDate= new DateTime(), PatientId=1,PatientName =  }
+                );
 
-
+            */
         }
     }
 }

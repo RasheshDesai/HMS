@@ -10,5 +10,9 @@ namespace Hospital_Management_System.Models.SQLOperation
         public Patient GetPatientById(int id);
 
         public List<Patient> GetPatientByName(string name);
+
+        public Patient UpdatePatient(Patient patient);
+
+        public string DeletePatient(int id);   
     }
 }

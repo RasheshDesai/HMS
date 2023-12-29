@@ -38,5 +38,27 @@ namespace Hospital_Management_System.Service
             List<Patient> records = _context.Patients.ToList();
             return records;
         }
+
+        public Patient UpdatePatient(Patient patient)
+        {
+            var p = _context.Patients.Attach(patient);
+            p.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return patient;
+        }
+
+        public string DeletePatient(int id) 
+        {
+            Patient patient = _context.Patients.Find(id)!;
+            
+            if(patient != null)
+            {
+				_context.Patients.Remove(patient);
+				_context.SaveChanges();
+			}
+            
+            return "Patient Removed";
+                
+        }
     }
 }

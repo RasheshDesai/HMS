@@ -33,9 +33,34 @@ namespace Hospital_Management_System.Controllers
             return RedirectToAction("ShowPatients");
             
         }
-        public IActionResult Index()
+      
+        [HttpGet]
+        public IActionResult EditPatient() 
         {
             return View();
         }
-    }
+        [HttpPost]
+        public IActionResult EditPatient(Patient patient)
+        {
+            service.UpdatePatient(patient);
+            return RedirectToAction("ShowPatients");
+        }
+
+        public IActionResult DeletePatient(int id) 
+        {
+            ViewData["Done"] = service.DeletePatient(id);
+            return RedirectToAction("ShowPatients");
+        }
+        [HttpPost]
+		public IActionResult GetPatientByName(string name)
+		{
+            
+			return View(service.GetPatientByName(name));
+		}
+
+		public IActionResult Index()
+		{
+			return View();
+		}
+	}
 }
